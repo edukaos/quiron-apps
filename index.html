@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Apps de Quirón · Herramientas para impresión 3D</title>
+<meta name="description" content="Apps gratuitas de Quirón para impresión 3D: diseñá lámparas, modelá piezas, calculá cuánto cobrar y aprendé con el curso Capa a Capa.">
+<meta name="theme-color" content="#081424">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Apps de Quirón">
+<meta property="og:description" content="Herramientas para impresión 3D: Qlamps, Constructor 3D, Cotizador y el curso Capa a Capa.">
+<meta property="og:image" content="https://lamps.quiron3d.com/screenshot-wide.jpg">
+<meta property="og:url" content="https://apps.quiron3d.com/">
+<style>
+:root{
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI Variable Text","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --bg:#081424;--card:rgba(14,30,50,.74);--edge:rgba(159,185,229,.16);--ink:#F4F6FC;--ink2:#D3DEEF;--muted:#AFC5E6;
+  --accent:#F5C451;--accentInk:#F7CE70;--glow1:rgba(40,74,120,.55);--glow2:rgba(245,196,81,.09);--magenta:#E600FF;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#E5EBF3;--card:rgba(244,247,251,.86);--edge:rgba(255,255,255,.9);--ink:#172C47;--ink2:#33496A;--muted:#4F6787;
+  --accentInk:#8A5A06;--glow1:rgba(120,160,215,.30);--glow2:rgba(245,196,81,.16);color-scheme:light;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;font:16px/1.55 var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;
+  background:radial-gradient(1100px 700px at 60% -10%,var(--glow1),transparent 70%),radial-gradient(800px 420px at 20% 105%,var(--glow2),transparent 70%),var(--bg);background-attachment:fixed}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 16px 56px}
+/* encabezado */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:inline-flex;align-items:center;color:var(--ink);text-decoration:none}
+.brand svg{height:34px;width:auto;display:block}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav a{font-size:14px;color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:12px}
+.top nav a:hover{color:var(--ink);background:var(--card)}
+.hero{padding:56px 0 36px;max-width:760px}
+.eyebrow{font-size:12px;font-weight:650;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+h1{margin:0;font-size:clamp(34px,6vw,56px);line-height:1.04;letter-spacing:-.035em;font-weight:750}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{margin:18px 0 0;font-size:clamp(17px,2.2vw,19px);color:var(--ink2);max-width:620px}
+/* tarjetas */
+.apps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.apps{grid-template-columns:1fr}}
+.app{position:relative;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;text-decoration:none;color:inherit;
+  background:var(--card);box-shadow:inset 0 0 0 1px var(--edge),0 18px 46px rgba(2,9,20,.28);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);backdrop-filter:blur(24px) saturate(1.5);transition:transform .2s ease,box-shadow .2s ease}
+.app:hover{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(245,196,81,.45),0 26px 60px rgba(2,9,20,.38)}
+.app:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.shot{aspect-ratio:16/10;background:#0A1729;overflow:hidden;border-bottom:1px solid var(--edge)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .5s ease}
+.app:hover .shot img{transform:scale(1.03)}
+.body{display:flex;flex-direction:column;gap:10px;padding:20px 22px 22px;flex:1}
+.name{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.name h2{margin:0;font-size:22px;letter-spacing:-.02em;font-weight:700}
+.tag{font-size:12px;font-weight:650;padding:3px 9px;border-radius:999px;background:rgba(245,196,81,.16);color:var(--accentInk)}
+.body p{margin:0;color:var(--ink2);font-size:15px}
+.body ul{margin:2px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.body li{font-size:13px;color:var(--muted);padding:4px 10px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--edge)}
+.go{margin-top:auto;padding-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.url{font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:14px;background:var(--accent);color:#1A1405;font-weight:700;font-size:15px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 22px rgba(245,196,81,.26)}
+.btn svg{width:18px;height:18px}
+/* bloque inferior */
+.about{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:28px;border-radius:24px;background:var(--card);box-shadow:inset 0 0 0 1px var(--edge)}
+@media (max-width:640px){.about{grid-template-columns:1fr;text-align:center;justify-items:center}}
+.about .mark svg{height:96px;width:auto;display:block}
+.about h3{margin:0 0 6px;font-size:20px;letter-spacing:-.02em}
+.about p{margin:0;color:var(--ink2);font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+@media (max-width:640px){.links{justify-content:center}}
+.links a{font-size:14px;text-decoration:none;padding:8px 14px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--edge);color:var(--ink)}
+.links a:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+footer{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.app,.shot img{transition:none}.app:hover{transform:none}.app:hover .shot img{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./" aria-label="Quirón, inicio"><svg class="qbrand-svg" xmlns="http://www.w3.org/2000/svg" viewBox="160 102 692 283" role="img" aria-label="Quirón"><path fill="#E600FF" d="M398.4,376.5l-84.3-84.3l-0.0,0.0l-0.0-0.0c-9.4,4.1-20.0,6.2-31.2,5.7 c-36.4-1.6-65.8-31.4-67.0-67.8c-1.3-41.1,32.7-74.6,74.0-72.4c34.6,1.8,63,29.2,66.0,63.7 c0.6,7.7,0.1,15.2-1.5,22.3l-0.7,2.2c-4.5,14.4-13.0,27.3-24.6,37.0l-1.7,1.5l0,0c-0.0,0.0-0.1,0.0-0.1,0.1 l34.1,34.1c25.9-21.4,42.5-53.6,42.9-89.8c0.7-64.8-51.6-118.5-116.4-119.4c-66.0-0.9-119.8,52.3-119.8,118.1 c0,65.2,52.9,118.1,118.1,118.1c4.4,0,8.7-0.2,13.0-0.7l31.4,31.4L398.4,376.5z"></path><path fill="#A928C9" d="M314.1,291.9L314.1,292l-0.0-0.0c-8.5,3.7-18.0,5.8-28.0,5.8c-38.8,0-70.2-31.4-70.2-70.2 c0-17.1,6.1-32.8,16.3-45.0l-62.4,65.7c8.5,48.6,46.9,86.9,95.5,95.6l49.1-51.7L314.1,291.9z"></path><g fill="currentColor" transform="translate(444.0 187.5) scale(1.672) translate(-168 -391)"><path d="M207.0,457.7l-7.5-9.0c-2.0,0.5-4.2,0.7-6.4,0.7c-4.6,0-8.9-1.0-12.7-3.2 c-3.8-2.1-6.9-5.2-9.2-9.0c-2.2-3.8-3.4-8.2-3.4-13.1c0-4.8,1.1-9.1,3.4-13.0c2.2-3.8,5.3-6.8,9.2-9.0 c3.8-2.1,8.1-3.2,12.7-3.2c4.6,0,8.9,1.0,12.8,3.2c3.8,2.1,6.9,5.2,9.1,9.0c2.2,3.8,3.3,8.2,3.3,13.0 c0,4.4-0.9,8.4-2.8,12.0c-1.8,3.6-4.4,6.5-7.6,8.8l11.3,12.7H207.0z M179.8,432.8c1.2,2.5,3.0,4.4,5.3,5.7 c2.3,1.3,4.9,2.0,7.9,2.0s5.6-0.6,7.8-2.0c2.2-1.3,4.0-3.2,5.3-5.7c1.2-2.5,1.9-5.4,1.9-8.7 c0-3.3-0.6-6.2-1.9-8.7c-1.2-2.4-3.0-4.3-5.3-5.7c-2.2-1.3-4.9-1.9-7.8-1.9s-5.6,0.6-7.9,1.9 c-2.3,1.3-4.0,3.2-5.3,5.7c-1.2,2.4-1.9,5.3-1.9,8.7C177.8,427.4,178.5,430.3,179.8,432.8z"></path><path d="M263.1,409.6v39.3h-10.0v-4.9c-1.2,1.7-2.9,3.0-5.0,4.0c-2.0,0.9-4.3,1.4-6.7,1.4 c-3.0,0-5.8-0.6-8.1-1.9c-2.3-1.3-4.2-3.2-5.5-5.7c-1.3-2.5-2.0-5.5-2.0-9.0v-23.1h9.9v21.6 c0,3.1,0.7,5.5,2.3,7.2c1.5,1.6,3.7,2.5,6.4,2.5c2.7,0,4.9-0.8,6.4-2.5c1.5-1.6,2.3-4.0,2.3-7.2v-21.6H263.1 z"></path><path d="M273.6,403.3c-1.1-1.1-1.7-2.5-1.7-4.1c0-1.6,0.5-3.0,1.7-4.1c1.1-1.1,2.6-1.6,4.3-1.6 c1.7,0,3.2,0.5,4.3,1.6c1.1,1.1,1.7,2.5,1.7,4.1c0,1.6-0.5,3.0-1.7,4.1c-1.1,1.1-2.6,1.6-4.3,1.6 C276.2,404.9,274.8,404.4,273.6,403.3z M282.9,409.6v39.3h-9.9v-39.3H282.9z"></path><path d="M307.7,410.8c2.0-1.1,4.4-1.7,7.0-1.7v10.4h-2.6c-3.1,0-5.4,0.7-7.0,2.2 c-1.5,1.4-2.3,4.0-2.3,7.6v19.6h-9.9v-39.3h9.9v6.1C303.9,413.6,305.6,412.0,307.7,410.8z"></path><path d="M328.7,447.1c-3.0-1.6-5.4-4.0-7.1-7.1c-1.7-3.0-2.5-6.6-2.5-10.6 c0-4.0,0.8-7.5,2.6-10.6c1.7-3.0,4.2-5.4,7.2-7.1c3.0-1.6,6.5-2.5,10.3-2.5c3.7,0,7.2,0.8,10.3,2.5 c3.0,1.6,5.5,4.0,7.2,7.1c1.7,3.0,2.6,6.6,2.6,10.6c0,4.0-0.9,7.5-2.7,10.6c-1.8,3.0-4.2,5.4-7.3,7.1 c-3.1,1.6-6.5,2.5-10.4,2.5C335.1,449.6,331.7,448.8,328.7,447.1z M344.0,439.6c1.5-0.8,2.8-2.1,3.8-3.9 c0.9-1.7,1.4-3.8,1.4-6.4c0-3.7-0.9-6.6-2.9-8.6c-1.9-2.0-4.3-3.0-7.2-3.0c-2.8,0-5.2,1.0-7.1,3.0 c-1.9,2.0-2.8,4.8-2.8,8.6c0,3.7,0.9,6.6,2.8,8.6c1.8,2.0,4.2,3.0,7.0,3.0 C340.7,441.0,342.4,440.5,344.0,439.6z M347.4,398.9l-16.3,7.4v-7.1l16.3-8.4V398.9z"></path><path d="M400,413.5c2.8,2.9,4.3,7.1,4.3,12.4v23.1h-9.9v-21.7c0-3.1-0.7-5.5-2.3-7.2 c-1.5-1.6-3.7-2.5-6.4-2.5c-2.7,0-4.9,0.8-6.5,2.5c-1.5,1.6-2.3,4.0-2.3,7.2v21.7h-9.9v-39.3h9.9v4.9 c1.3-1.7,3.0-3.0,5.0-4.0c2.0-0.9,4.3-1.4,6.7-1.4C393.3,409.0,397.1,410.5,400,413.5z"></path></g></svg></a>
+    <nav aria-label="Apps">
+      <a href="#qlamps">Qlamps</a><a href="#curso">Capa a Capa</a><a href="#constructor">Constructor</a><a href="#cotizador">Cotizador</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Apps de Quirón</p>
+    <h1>Herramientas para <em>imprimir en 3D</em>, listas para usar.</h1>
+    <p class="lead">Diseñá lámparas, modelá piezas, calculá cuánto cobrar y aprendé cómo funciona todo. Se abren en el navegador, sin instalar nada.</p>
+  </section>
+
+  <main class="apps">
+    <a class="app" id="qlamps" href="https://lamps.quiron3d.com/">
+      <div class="shot"><img src="https://lamps.quiron3d.com/screenshot-wide.jpg" alt="Qlamps: editor de una lámpara 3D con pantalla y base" loading="lazy" width="960" height="600"></div>
+      <div class="body">
+        <div class="name"><h2>Qlamps</h2><span class="tag">Gratis</span></div>
+        <p>Diseñá tu propia lámpara: elegí la forma, sumá relieves y torsión, y exportá la pantalla y la base roscada en STL.</p>
+        <ul><li>Vista 3D en vivo</li><li>Relieves y colores</li><li>Biblioteca de diseños</li></ul>
+        <div class="go"><span class="url">lamps.quiron3d.com</span><span class="btn">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </a>
+
+    <a class="app" id="curso" href="https://curso.quiron3d.com/">
+      <div class="shot"><img src="https://curso.quiron3d.com/img/compartir.jpg" alt="Capa a Capa: curso interactivo de impresión 3D" loading="lazy" width="960" height="600"></div>
+      <div class="body">
+        <div class="name"><h2>Capa a Capa</h2><span class="tag">Curso</span></div>
+        <p>El curso interactivo para entender la impresión 3D: altura de capa, temperaturas, fallos, multicolor y más, con simuladores para probar.</p>
+        <ul><li>Simuladores interactivos</li><li>Paso a paso</li><li>Para principiantes</li></ul>
+        <div class="go"><span class="url">curso.quiron3d.com</span><span class="btn">Ver el curso <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </a>
+
+    <a class="app" id="constructor" href="https://constructor.quiron3d.com/">
+      <div class="shot"><img src="img/constructor.webp" alt="Constructor 3D: editor con un cubo seleccionado y herramientas" loading="lazy" width="960" height="600"></div>
+      <div class="body">
+        <div class="name"><h2>Constructor 3D</h2><span class="tag">Gratis</span></div>
+        <p>Modelá piezas simples para imprimir: sumá formas, uní, restá, cortá y dibujá un boceto para extruir. Pensado para compu.</p>
+        <ul><li>Unir y restar</li><li>Sketch 2D</li><li>Exportar STL y 3MF</li></ul>
+        <div class="go"><span class="url">constructor.quiron3d.com</span><span class="btn">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </a>
+
+    <a class="app" id="cotizador" href="https://cotizador.quiron3d.com/">
+      <div class="shot"><img src="img/cotizador.webp" alt="Cotizador 3D: cálculo del precio de una pieza a partir de su archivo" loading="lazy" width="960" height="600"></div>
+      <div class="body">
+        <div class="name"><h2>Cotizador 3D</h2><span class="tag">Gratis</span></div>
+        <p>Calculá cuánto cobrar cada impresión: subí el gcode o el STL y te arma el precio con filamento, luz, desgaste y ganancia.</p>
+        <ul><li>Lista de precios</li><li>Pedidos y pagos</li><li>Presupuesto para WhatsApp</li></ul>
+        <div class="go"><span class="url">cotizador.quiron3d.com</span><span class="btn">Abrir <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </div>
+    </a>
+  </main>
+
+  <section class="about" aria-label="Sobre Quirón">
+    <div class="mark"><svg class="qbrand-svg" xmlns="http://www.w3.org/2000/svg" viewBox="160 102 252 362" role="img" aria-label="Quirón"><path fill="#E600FF" d="M398.4,376.5l-84.3-84.3l-0.0,0.0l-0.0-0.0c-9.4,4.1-20.0,6.2-31.2,5.7 c-36.4-1.6-65.8-31.4-67.0-67.8c-1.3-41.1,32.7-74.6,74.0-72.4c34.6,1.8,63,29.2,66.0,63.7 c0.6,7.7,0.1,15.2-1.5,22.3l-0.7,2.2c-4.5,14.4-13.0,27.3-24.6,37.0l-1.7,1.5l0,0c-0.0,0.0-0.1,0.0-0.1,0.1 l34.1,34.1c25.9-21.4,42.5-53.6,42.9-89.8c0.7-64.8-51.6-118.5-116.4-119.4c-66.0-0.9-119.8,52.3-119.8,118.1 c0,65.2,52.9,118.1,118.1,118.1c4.4,0,8.7-0.2,13.0-0.7l31.4,31.4L398.4,376.5z"></path><path fill="#A928C9" d="M314.1,291.9L314.1,292l-0.0-0.0c-8.5,3.7-18.0,5.8-28.0,5.8c-38.8,0-70.2-31.4-70.2-70.2 c0-17.1,6.1-32.8,16.3-45.0l-62.4,65.7c8.5,48.6,46.9,86.9,95.5,95.6l49.1-51.7L314.1,291.9z"></path><g fill="currentColor"><path d="M207.0,457.7l-7.5-9.0c-2.0,0.5-4.2,0.7-6.4,0.7c-4.6,0-8.9-1.0-12.7-3.2 c-3.8-2.1-6.9-5.2-9.2-9.0c-2.2-3.8-3.4-8.2-3.4-13.1c0-4.8,1.1-9.1,3.4-13.0c2.2-3.8,5.3-6.8,9.2-9.0 c3.8-2.1,8.1-3.2,12.7-3.2c4.6,0,8.9,1.0,12.8,3.2c3.8,2.1,6.9,5.2,9.1,9.0c2.2,3.8,3.3,8.2,3.3,13.0 c0,4.4-0.9,8.4-2.8,12.0c-1.8,3.6-4.4,6.5-7.6,8.8l11.3,12.7H207.0z M179.8,432.8c1.2,2.5,3.0,4.4,5.3,5.7 c2.3,1.3,4.9,2.0,7.9,2.0s5.6-0.6,7.8-2.0c2.2-1.3,4.0-3.2,5.3-5.7c1.2-2.5,1.9-5.4,1.9-8.7 c0-3.3-0.6-6.2-1.9-8.7c-1.2-2.4-3.0-4.3-5.3-5.7c-2.2-1.3-4.9-1.9-7.8-1.9s-5.6,0.6-7.9,1.9 c-2.3,1.3-4.0,3.2-5.3,5.7c-1.2,2.4-1.9,5.3-1.9,8.7C177.8,427.4,178.5,430.3,179.8,432.8z"></path><path d="M263.1,409.6v39.3h-10.0v-4.9c-1.2,1.7-2.9,3.0-5.0,4.0c-2.0,0.9-4.3,1.4-6.7,1.4 c-3.0,0-5.8-0.6-8.1-1.9c-2.3-1.3-4.2-3.2-5.5-5.7c-1.3-2.5-2.0-5.5-2.0-9.0v-23.1h9.9v21.6 c0,3.1,0.7,5.5,2.3,7.2c1.5,1.6,3.7,2.5,6.4,2.5c2.7,0,4.9-0.8,6.4-2.5c1.5-1.6,2.3-4.0,2.3-7.2v-21.6H263.1 z"></path><path d="M273.6,403.3c-1.1-1.1-1.7-2.5-1.7-4.1c0-1.6,0.5-3.0,1.7-4.1c1.1-1.1,2.6-1.6,4.3-1.6 c1.7,0,3.2,0.5,4.3,1.6c1.1,1.1,1.7,2.5,1.7,4.1c0,1.6-0.5,3.0-1.7,4.1c-1.1,1.1-2.6,1.6-4.3,1.6 C276.2,404.9,274.8,404.4,273.6,403.3z M282.9,409.6v39.3h-9.9v-39.3H282.9z"></path><path d="M307.7,410.8c2.0-1.1,4.4-1.7,7.0-1.7v10.4h-2.6c-3.1,0-5.4,0.7-7.0,2.2 c-1.5,1.4-2.3,4.0-2.3,7.6v19.6h-9.9v-39.3h9.9v6.1C303.9,413.6,305.6,412.0,307.7,410.8z"></path><path d="M328.7,447.1c-3.0-1.6-5.4-4.0-7.1-7.1c-1.7-3.0-2.5-6.6-2.5-10.6 c0-4.0,0.8-7.5,2.6-10.6c1.7-3.0,4.2-5.4,7.2-7.1c3.0-1.6,6.5-2.5,10.3-2.5c3.7,0,7.2,0.8,10.3,2.5 c3.0,1.6,5.5,4.0,7.2,7.1c1.7,3.0,2.6,6.6,2.6,10.6c0,4.0-0.9,7.5-2.7,10.6c-1.8,3.0-4.2,5.4-7.3,7.1 c-3.1,1.6-6.5,2.5-10.4,2.5C335.1,449.6,331.7,448.8,328.7,447.1z M344.0,439.6c1.5-0.8,2.8-2.1,3.8-3.9 c0.9-1.7,1.4-3.8,1.4-6.4c0-3.7-0.9-6.6-2.9-8.6c-1.9-2.0-4.3-3.0-7.2-3.0c-2.8,0-5.2,1.0-7.1,3.0 c-1.9,2.0-2.8,4.8-2.8,8.6c0,3.7,0.9,6.6,2.8,8.6c1.8,2.0,4.2,3.0,7.0,3.0 C340.7,441.0,342.4,440.5,344.0,439.6z M347.4,398.9l-16.3,7.4v-7.1l16.3-8.4V398.9z"></path><path d="M400,413.5c2.8,2.9,4.3,7.1,4.3,12.4v23.1h-9.9v-21.7c0-3.1-0.7-5.5-2.3-7.2 c-1.5-1.6-3.7-2.5-6.4-2.5c-2.7,0-4.9,0.8-6.5,2.5c-1.5,1.6-2.3,4.0-2.3,7.2v21.7h-9.9v-39.3h9.9v4.9 c1.3-1.7,3.0-3.0,5.0-4.0c2.0-0.9,4.3-1.4,6.7-1.4C393.3,409.0,397.1,410.5,400,413.5z"></path></g></svg></div>
+    <div>
+      <h3>Hecho por Quirón</h3>
+      <p>Impresión 3D, sublimación y diseño desde Buenos Aires. Estas apps nacieron en el taller, para resolver lo que necesitábamos todos los días.</p>
+      <div class="links">
+        <a href="https://www.instagram.com/quironnet" target="_blank" rel="noopener">Instagram · @quironnet</a>
+        <a href="https://www.tiktok.com/@quiron.net" target="_blank" rel="noopener">TikTok · @quiron.net</a>
+        <a href="mailto:quironnet@gmail.com">quironnet@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Quirón · Eduardo González</span><span>apps.quiron3d.com</span></footer>
+</div>
+</body>
+</html>
